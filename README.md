@@ -7,7 +7,6 @@ This project is a **Python-based PDF parsing system** that:
 - 🗂️ Preserves **page-level hierarchy** and section/sub-section mapping  
 - 📊 Converts tables into **structured 2D arrays**  
 - 📈 Detects **vector charts/images** with bounding boxes and metadata  
-- 🌐 Provides both a **CLI tool** and a **Streamlit dashboard** for ease of use  
 
 ---
 
@@ -17,8 +16,7 @@ This project is a **Python-based PDF parsing system** that:
 - 📝 **Paragraph grouping** with font-size based heading/section detection  
 - 📊 **Table extraction** using Camelot + pdfplumber fallback  
 - 📈 **Chart/vector block detection** with optional OCR hook for labels  
-- 🗂️ Outputs **clean, hierarchical JSON** preserving structure  
-- 🌐 **Streamlit Dashboard** → Upload PDF & download JSON interactively  
+- 🗂️ Outputs **clean, hierarchical JSON** preserving structure   
 
 ---
 
@@ -29,8 +27,6 @@ This project is a **Python-based PDF parsing system** that:
 - **Table Extraction** → Camelot (stream) + pdfplumber fallback, cleaned into 2D arrays  
 - **Chart Detection** → Vector drawings + bounding boxes, year-value pairs parsed  
 - **JSON Assembly** → Combines paragraphs, tables, and charts into structured output  
-- **Dashboard** → Streamlit app for file upload, preview, and download  
-
 ---
 
 ## 🔧 Installation
@@ -54,13 +50,6 @@ python app.py input.pdf output.json
 * `input.pdf` → Path to input PDF
 * `output.json` → Output JSON file path
 
----
-
-### 2️⃣ Streamlit Dashboard
-
-```bash
-streamlit run dashboard.py
-```
 ---
 
 ## ⚠️ Notes & Limitations

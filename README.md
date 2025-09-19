@@ -1,4 +1,3 @@
-````markdown
 # 📄 PDF to JSON Parser  
 
 ## 📌 Overview  

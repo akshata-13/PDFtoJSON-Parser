@@ -1,0 +1,10 @@
+streamlit
+pymupdf
+pdfplumber
+camelot-py[cv]
+numpy
+pandas
+opencv-python
+pillow
+pytesseract
+tqdm

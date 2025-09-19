@@ -2,7 +2,7 @@
 📌 Overview
 
 This project provides a Python-based PDF parsing tool with both a command-line interface (CLI) and a Streamlit dashboard.
-It converts unstructured PDF documents into a well-organized JSON format, preserving page hierarchy and distinguishing between paragraphs, tables, and charts for easier downstream analysis.:
+It converts unstructured PDF documents into a well-organized JSON format, preserving page hierarchy and distinguishing between paragraphs, tables, and charts for easier downstream analysis.
 
 ✨ Features
 
@@ -10,11 +10,11 @@ It converts unstructured PDF documents into a well-organized JSON format, preser
 
 📝 Paragraph grouping with section/sub-section detection using font size & heuristics
 
-📊 Table extraction via Camelot and pdfplumber, normalized into 2D arrays
+📊 Table extraction using Camelot and pdfplumber, normalized into 2D arrays
 
 📈 Chart/vector detection with bounding boxes and optional OCR hook for labels
 
-🗂️ Outputs clean, structured JSON preserving hierarchy
+🗂️ Outputs clean, well-structured JSON preserving hierarchy
 
 🌐 Streamlit Dashboard for PDF upload and JSON download
 
@@ -22,39 +22,36 @@ It converts unstructured PDF documents into a well-organized JSON format, preser
 
 Ensure you have Python 3.9+ installed
 
-(Recommended) Use a virtual environment
+(Recommended) Create and activate a virtual environment
 
 Install dependencies:
 
 pip install -r requirements.txt
 
+🔹 Optional OCR Support
+
+If your PDFs contain scanned images and you want OCR text extraction:
+
+macOS → brew install tesseract
+
+Ubuntu/Debian → sudo apt-get install -y tesseract-ocr
 
 🖥️ Usage
 1️⃣ CLI Mode
 
-Run the parser directly from terminal:
+Run the parser from terminal:
 
-python app.py input.pdf output.json 
+python app.py input.pdf output.json --csv-dir tables/
 
 
 input.pdf → Path to input PDF
 
 output.json → Output JSON file path
 
+--csv-dir DIR → (optional) Export detected tables as CSVs
 
 2️⃣ Streamlit Dashboard
 
-Run the interactive web app:
 
 streamlit run dashboard.py
 
-
-⚠️ Notes & Limitations
-
-Heading detection uses font-size heuristics → may require tuning for unusual PDFs
-
-Complex or image-based tables may not extract perfectly
-
-OCR is optional and disabled by default
-
-Charts without text labels may only return bounding boxes

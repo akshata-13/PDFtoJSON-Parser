@@ -36,8 +36,7 @@ This project is a **Python-based PDF parsing system** that:
 ## 🔧 Installation
 
 1. Ensure you have **Python 3.9+** installed
-2. (Recommended) Create a **virtual environment**
-3. Install dependencies:
+2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -64,10 +63,6 @@ streamlit run dashboard.py
 ```
 ---
 
-
-
----
-
 ## ⚠️ Notes & Limitations
 
 * Heading detection is **heuristic (font-size based)** → may need tuning
@@ -76,7 +71,4 @@ streamlit run dashboard.py
 * Charts without text labels may only return bounding boxes
 
 ---
- 
-
-Do you want me to also add a **“Deployment” section** (Streamlit Cloud + Hugging Face Spaces) at the bottom so your faculty can run it online without setup?
-```
+ ```

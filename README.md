@@ -1,57 +1,83 @@
-📄 PDF to JSON Parser
-📌 Overview
+````markdown
+# 📄 PDF to JSON Parser  
 
-This project provides a Python-based PDF parsing tool with both a command-line interface (CLI) and a Streamlit dashboard.
-It converts unstructured PDF documents into a well-organized JSON format, preserving page hierarchy and distinguishing between paragraphs, tables, and charts for easier downstream analysis.
+## 📌 Overview  
+This project is a **Python-based PDF parsing system** that:  
 
-✨ Features
+- 📑 Extracts **paragraphs, tables, and charts** from PDF documents  
+- 🗂️ Preserves **page-level hierarchy** and section/sub-section mapping  
+- 📊 Converts tables into **structured 2D arrays**  
+- 📈 Detects **vector charts/images** with bounding boxes and metadata  
+- 🌐 Provides both a **CLI tool** and a **Streamlit dashboard** for ease of use  
 
-📑 Page-wise extraction with page_number
+---
 
-📝 Paragraph grouping with section/sub-section detection using font size & heuristics
+## 🛠️ Features  
 
-📊 Table extraction using Camelot and pdfplumber, normalized into 2D arrays
+- 📄 **Page-wise extraction** with `page_number`  
+- 📝 **Paragraph grouping** with font-size based heading/section detection  
+- 📊 **Table extraction** using Camelot + pdfplumber fallback  
+- 📈 **Chart/vector block detection** with optional OCR hook for labels  
+- 🗂️ Outputs **clean, hierarchical JSON** preserving structure  
+- 🌐 **Streamlit Dashboard** → Upload PDF & download JSON interactively  
 
-📈 Chart/vector detection with bounding boxes and optional OCR hook for labels
+---
 
-🗂️ Outputs clean, well-structured JSON preserving hierarchy
+## 🏗️ Project Architecture  
 
-🌐 Streamlit Dashboard for PDF upload and JSON download
+- **Text Extraction** → Extract spans & group into paragraphs  
+- **Heading Detection** → Uses font size + heuristics for section/sub-sections  
+- **Table Extraction** → Camelot (stream) + pdfplumber fallback, cleaned into 2D arrays  
+- **Chart Detection** → Vector drawings + bounding boxes, year-value pairs parsed  
+- **JSON Assembly** → Combines paragraphs, tables, and charts into structured output  
+- **Dashboard** → Streamlit app for file upload, preview, and download  
 
-⚙️ Installation
+---
 
-Ensure you have Python 3.9+ installed
+## 🔧 Installation
 
-(Recommended) Create and activate a virtual environment
+1. Ensure you have **Python 3.9+** installed
+2. (Recommended) Create a **virtual environment**
+3. Install dependencies:
 
-Install dependencies:
-
+```bash
 pip install -r requirements.txt
+```
+---
 
-🔹 Optional OCR Support
+## ▶️ Usage
 
-If your PDFs contain scanned images and you want OCR text extraction:
+### 1️⃣ CLI Mode
 
-macOS → brew install tesseract
+```bash
+python app.py input.pdf output.json 
+```
 
-Ubuntu/Debian → sudo apt-get install -y tesseract-ocr
+* `input.pdf` → Path to input PDF
+* `output.json` → Output JSON file path
 
-🖥️ Usage
-1️⃣ CLI Mode
+---
 
-Run the parser from terminal:
+### 2️⃣ Streamlit Dashboard
 
-python app.py input.pdf output.json --csv-dir tables/
-
-
-input.pdf → Path to input PDF
-
-output.json → Output JSON file path
-
---csv-dir DIR → (optional) Export detected tables as CSVs
-
-2️⃣ Streamlit Dashboard
-
-
+```bash
 streamlit run dashboard.py
+```
+---
 
+
+
+---
+
+## ⚠️ Notes & Limitations
+
+* Heading detection is **heuristic (font-size based)** → may need tuning
+* Complex or scanned tables may not extract perfectly
+* OCR support is **optional** and off by default
+* Charts without text labels may only return bounding boxes
+
+---
+ 
+
+Do you want me to also add a **“Deployment” section** (Streamlit Cloud + Hugging Face Spaces) at the bottom so your faculty can run it online without setup?
+```
